@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>OSVVM sensors readme</title>
+	<link rel="stylesheet" href="readme_files/txt.css" />
+</head>
+<body>
+<div id="moo">
+	<h1>OSVVM <span class="quote">sensors</span> example design</h1>
+
+	<h2>Introduction</h2>
+
+	<p>This design has been created to demonstrate the advanced features of	the functional coverage package.
+	The design represents the abstract model of 8x8 matrix of sensors.
+	Each sensor has an 8 bit data register.
+	The sensor indices and data for the	registers are generated randomly.
+	The testbench is checking for two types of coverage:</p>
+
+	<ol>
+		<li>
+		Picking up a sensor node randomly until all sensors are picked.
+		The intelligent coverage feature can be used to accomplish this goal faster than regular coverage.
+		</li>
+
+		<li>
+			Data coverage is collected across all sensor registers to make sure all data ranges were hit by the random generator.
+		</li>
+	</ol>
+
+	<p>
+		<img src="readme_files/diagram.png" height="255" width="600" alt="Functional diagram of the OSVVM sensors design"><br />
+		<span class="emphasis">Figure 1.</span> Functional diagram of the OSVVM <span class="quote">sensors</span> design.
+	</p>
+
+	<h2>Data Generation</h2>
+
+	<p>
+		8-bit binary data is generated randomly with <span class="quote">Normal</span> distribution;
+		operator of the simulator can modify mean value,
+		standard deviation and increment of standard deviation of the distribution using three generic parameters:
+	</p>
+
+	<ul>
+		<li><span class="code">DataMean</span></li>
+		<li><span class="code">DataSDstart</span></li>
+		<li><span class="code">DataSDinc</span></li>
+	</ul>
+
+	<p>
+		The <span class="code">SensorData</span> is randomly generated using RandomPkg's
+		<span class="code">Normal( Mean, StdDeviation, Min, Max: real )</span> function:
+	</p>
+	<pre>Rsens.Normal( DataMean, DataSD, <span class="NUMBER">1</span>, <span class="NUMBER">255</span> );</pre>
+
+	<p>
+		Above function returns real values between 1 and 255 with given mean and standard deviation.
+		<span class="quote">Normal</span> (<span class="quote">Gaussian</span>) distribution of the data is maintained.
+	</p>
+
+	<p>
+		This randomly generated data is written inside 8x8 matrix indices.
+		To speed up coverage goal achievement, test	produces first batch of sensor data
+		using <span class="code">DataMean</span> and <span class="code">DataSDstart</span> values as distribution parameters.
+		If coverage is not achieved, current <span class="code">DataSD</span> (standard deviation) value is incremented
+		by <span class="code">DataSDinc</span> to flatten <span class="quote">Normal</span> distribution curve and improve coverage.
+		Setting <span class="code">DataSDinc</span> to 0.0 turns this feature off and increases number of iterations
+		needed to achieve coverage.
+		The test prints number of iterations needed to fully cover all data values at the end of simulation.
+	</p>
+
+	<h2>Functional Coverage</h2>
+
+	<p>
+		Random sensor data is written to the sensor register after randomly selecting sensor indices.
+		Coverage is collected for both sensor data and index values.
+		If generic parameter <span class="code">Intelligent</span> is set to <span class="code">true</span>,
+		index coverage results are used to control selection of the next index pair.
+		If the generic is set to <span class="code">false</span>, indices are generated with uniform distribution,
+		which more than doubles the number of iterations needed to achieve index coverage.
+	</p>
+
+<pre>(X, Y) := XYCov.RandCovPoint;</pre>
+
+	<p>
+		<span class="code">XYCov</span> is shared variable used to handle coverage package procedures.
+		<span class="code">RandCovPoint</span> randomizes only uncovered indices if <span class="code">Intelligent</span> is set to <span class="code">true</span>.
+		In case of problems with selection of correct version of the method,
+		qualified expression can be used <span class="code">(X, Y) := integer_vector'(XYCov.RandCovPoint);</span>).
+		If <span class="code">Intelligent</span> is set to <span>false</span>
+		then X and Y values are selected randomly every time irrespective of coverage, using <span class="code">RandInt</span> method:
+	</p>
+
+<pre>
+X := Rxy.RandInt( <span class="NUMBER">0</span>, <span class="NUMBER">7</span> );
+Y := Rxy.RandInt( <span class="NUMBER">0</span>, <span class="NUMBER">7</span> );
+</pre>
+
+	<p>
+		For all methods of generating random data, the samples read from the
+		matrix of sensors are collected for the coverage analysis:
+	</p>
+
+	<pre>DCov.ICover(sensors.get(X, Y));&nbsp; &nbsp; <span class="COMMENT">-- collect coverage for data</span></pre>
+
+	<p>
+		<span class="code">DCov</span> is a shared variable and
+		<span class="code">ICover</span> is a procedure (method) which is used to collect coverage data.
+	</p>
+
+	<p>The indices coverage data is also being collected:</p>
+
+<pre>XYCov.ICover((X, Y));</pre>
+
+	<p>
+		The <span class="code">IsCovered</span> method is used to check if coverage goal was achieved.
+		This information is used to end data generation/collection loop execution and to print messages.
+	</p>
+
+<pre>
+Collect: <span class="KEYWORD">while not</span> DCov.IsCovered <span class="KEYWORD">loop</span>
+<span class="COMMENT">-- ...</span>
+</pre>
+
+	<h2>
+		<a>Reporting</a>
+	</h2>
+
+<pre>
+XYCov.WriteCovDb( <span class="STRING">"quicktest_XYcovdb.txt"</span>, OpenKind =&gt; WRITE_MODE );
+</pre>
+
+	<p>
+		<span class="code">WriteCovDB</span> is used to generate database file for later use.
+	</p>
+
+	<p>
+		Compilation and simulation script contains three simulation commands	(two of them commented out)
+		with different values of generics set for given simulation run.
+		The middle command gives decent results with intelligent features turned on.
+		The other two produce long, un-optimized simulation and fast, maximally optimized simulation.
+	</p>
+	<br />
+</div>
+<div class="footer"><div class="company">
+Last modified: $Date: 2013-09-17 11:38:33 +0200 (Tue, 17 Sep 2013) $ <br />
+$Revision: 289123 $</p>
+</div>
+</body>
+</html>

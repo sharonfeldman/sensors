@@ -1,0 +1,183 @@
+[Project]
+Current Flow=Generic
+VCS=0
+version=4
+Current Config=compile
+
+[Configurations]
+compile=sensors
+
+[Library]
+sensors=.\..\..\..\Aldec\Riviera-PRO-2017.10-x64\examples\vhdl\osvvm\sensors\sensors\sensors.lib
+
+[Settings]
+AccessRead=0
+AccessReadWrite=0
+AccessACCB=0
+AccessACCR=0
+AccessReadWriteSLP=0
+AccessReadTopLevel=1
+DisableC=1
+ENABLE_ADV_DATAFLOW=0
+FLOW_TYPE=HDL
+LANGUAGE=VHDL
+FLOWTOOLS=NONE
+REFRESH_FLOW=1
+FAMILY=
+fileopenfolder=C:\My_Designs\sensors_OSVVM\sensors
+
+[LocalVerilogSets]
+EnableSLP=1
+EnableDebug=0
+
+[LocalVhdlSets]
+CompileWithDebug=0
+
+[$LibMap$]
+Active_lib=
+sensors=.
+
+[SpecTracer]
+WindowVisible=0
+
+[Groups]
+readme_files=1
+wave.asdbw=1
+wave.asdbw\current=1
+wave.asdbw\LOCAL___6d57395adf3e7d0c1400.sid=1
+
+[DesignStructure]
+adc=.\src
+ExternalFile=.\src
+Text=.\
+ActiveCADTestVectors=.\src
+MemFile=.\src
+HTMLDocument=.\src
+ListFile=.\src
+PerlScript=.\src
+SymbolSheet=.\src
+Cpp=.\src
+PslSourceCode=.\src
+OvaSourceCode=.\src
+EDIFSchematic=.\src
+EDIFNetlist=.\src
+Waveform=.\src
+WaveformASDBC=.\src
+BlockDiagram=.\src
+Macro=.\src
+StateDiagram=.\src
+SystemVerilogSourceCode=.\src
+SDF=.\src
+WaveformASDBAWC=.\src
+WaveformASDB=.\src
+Drawing=.\src
+VHDLSourceCode=.\src
+VerilogSourceCode=.\src
+TclScript=.\src
+GenerateToCustomFolder=0
+
+[AlintProSettings]
+BehaviorMode=Generate
+OverwriteExistingWorkspace=0
+IgnoreNonSynthesizableModules=1
+GenerateTclScriptPolicy=DefaultPolicy
+GenerateTclScriptWaivers=NoWaivers
+RunActioveProject=1
+GenerateTclScriptWaiversPath=
+GenerateTclScriptPolicyPath=
+UseCustomTclScriptPath=
+
+[Files]
+/runme.tcl=-1
+/sensors.vhd=-1
+/variables.do=-1
+/readme.htm=-1
+/wave.asdb=-1
+/..\quicktest_Dcovdb.txt=-1
+/..\quicktest_XYcovdb.txt=-1
+readme_files/bullet.png=-1
+readme_files/diagram.png=-1
+readme_files/footbg.gif=-1
+readme_files/txt.css=-1
+wave.asdbw/strings.data=-1
+wave.asdbw\current/channels=-1
+wave.asdbw\current/global_info=-1
+wave.asdbw\current/names.data=-1
+wave.asdbw\current/names.index=-1
+wave.asdbw\current/pattern_lut=-1
+wave.asdbw\current/scratchpad=-1
+wave.asdbw\current/sources=-1
+wave.asdbw\current/strings.index=-1
+wave.asdbw\current/treeinfo=-1
+wave.asdbw\current/typeinfo=-1
+wave.asdbw\LOCAL___6d57395adf3e7d0c1400.sid/channels.data=-1
+wave.asdbw\LOCAL___6d57395adf3e7d0c1400.sid/channels.index=-1
+wave.asdbw\LOCAL___6d57395adf3e7d0c1400.sid/current_time=-1
+wave.asdbw\LOCAL___6d57395adf3e7d0c1400.sid/global_info=-1
+wave.asdbw\LOCAL___6d57395adf3e7d0c1400.sid/names.data=-1
+wave.asdbw\LOCAL___6d57395adf3e7d0c1400.sid/names.index=-1
+wave.asdbw\LOCAL___6d57395adf3e7d0c1400.sid/pattern_lut=-1
+wave.asdbw\LOCAL___6d57395adf3e7d0c1400.sid/ref_counter=-1
+wave.asdbw\LOCAL___6d57395adf3e7d0c1400.sid/scratchpad.data=-1
+wave.asdbw\LOCAL___6d57395adf3e7d0c1400.sid/scratchpad.index=-1
+wave.asdbw\LOCAL___6d57395adf3e7d0c1400.sid/sources=-1
+wave.asdbw\LOCAL___6d57395adf3e7d0c1400.sid/status_ok=-1
+wave.asdbw\LOCAL___6d57395adf3e7d0c1400.sid/strings.index=-1
+wave.asdbw\LOCAL___6d57395adf3e7d0c1400.sid/treeinfo=-1
+wave.asdbw\LOCAL___6d57395adf3e7d0c1400.sid/typeinfo=-1
+
+[Files.Data]
+.\src\runme.tcl=Tcl Script
+.\src\sensors.vhd=VHDL Source Code
+.\src\variables.do=Macro
+.\src\readme.htm=HTML Document
+.\src\wave.asdb=Accelerated Waveform File
+.\quicktest_Dcovdb.txt=Text File
+.\quicktest_XYcovdb.txt=Text File
+.\src\readme_files\bullet.png=External File
+.\src\readme_files\diagram.png=External File
+.\src\readme_files\footbg.gif=External File
+.\src\readme_files\txt.css=External File
+.\src\wave.asdbw\strings.data=External File
+.\src\wave.asdbw\current\channels=External File
+.\src\wave.asdbw\current\global_info=External File
+.\src\wave.asdbw\current\names.data=External File
+.\src\wave.asdbw\current\names.index=External File
+.\src\wave.asdbw\current\pattern_lut=External File
+.\src\wave.asdbw\current\scratchpad=External File
+.\src\wave.asdbw\current\sources=External File
+.\src\wave.asdbw\current\strings.index=External File
+.\src\wave.asdbw\current\treeinfo=External File
+.\src\wave.asdbw\current\typeinfo=External File
+.\src\wave.asdbw\LOCAL___6d57395adf3e7d0c1400.sid\channels.data=External File
+.\src\wave.asdbw\LOCAL___6d57395adf3e7d0c1400.sid\channels.index=External File
+.\src\wave.asdbw\LOCAL___6d57395adf3e7d0c1400.sid\current_time=External File
+.\src\wave.asdbw\LOCAL___6d57395adf3e7d0c1400.sid\global_info=External File
+.\src\wave.asdbw\LOCAL___6d57395adf3e7d0c1400.sid\names.data=External File
+.\src\wave.asdbw\LOCAL___6d57395adf3e7d0c1400.sid\names.index=External File
+.\src\wave.asdbw\LOCAL___6d57395adf3e7d0c1400.sid\pattern_lut=External File
+.\src\wave.asdbw\LOCAL___6d57395adf3e7d0c1400.sid\ref_counter=External File
+.\src\wave.asdbw\LOCAL___6d57395adf3e7d0c1400.sid\scratchpad.data=External File
+.\src\wave.asdbw\LOCAL___6d57395adf3e7d0c1400.sid\scratchpad.index=External File
+.\src\wave.asdbw\LOCAL___6d57395adf3e7d0c1400.sid\sources=External File
+.\src\wave.asdbw\LOCAL___6d57395adf3e7d0c1400.sid\status_ok=External File
+.\src\wave.asdbw\LOCAL___6d57395adf3e7d0c1400.sid\strings.index=External File
+.\src\wave.asdbw\LOCAL___6d57395adf3e7d0c1400.sid\treeinfo=External File
+.\src\wave.asdbw\LOCAL___6d57395adf3e7d0c1400.sid\typeinfo=External File
+
+[Folders]
+Name3=Makefiles
+Directory3=c:\My_Designs\sensors_OSVVM\sensors\
+Extension3=mak
+Name4=Memory
+Directory4=c:\My_Designs\sensors_OSVVM\sensors\
+Extension4=mem;mif;hex
+Name5=Dll Libraries
+Directory5=c:\My_Designs\sensors_OSVVM\sensors\
+Extension5=dll
+Name6=PDF
+Directory6=c:\My_Designs\sensors_OSVVM\sensors\
+Extension6=pdf
+Name7=HTML
+Directory7=c:\My_Designs\sensors_OSVVM\sensors\
+Extension7=htm;html

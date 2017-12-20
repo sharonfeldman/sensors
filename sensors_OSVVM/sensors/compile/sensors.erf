@@ -1,0 +1,4 @@
+MESSAGE "File: src\sensors.vhd" 
+MESSAGE "Compile Entity "sensors"" 
+MESSAGE "Compile Architecture "behavior" of Entity "sensors"" 
+SUCCESS "Compile success 0 Errors 0 Warnings  Analysis time :  0.1 [s]" 

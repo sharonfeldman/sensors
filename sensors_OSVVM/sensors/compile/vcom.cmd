@@ -1,0 +1,1 @@
+-w -erf c:/My_Designs/sensors_OSVVM/sensors/compile/sensors.erf -d c:/My_Designs/sensors_OSVVM/sensors/compile -s c:/My_Designs/OSVVM/library.cfg -j c:/My_Designs/sensors_OSVVM/sensors/projlib.cfg -work sensors -dbg src/sensors.vhd 
