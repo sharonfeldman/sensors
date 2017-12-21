@@ -1,0 +1,1 @@
+C:/Aldec/Active-HDL-10.5-x64/BIN/vsimsa.bat -tcl "cd C:/My_Designs/sensors_OSVVM/sensors;source C:/Aldec/Riviera-PRO-2017.10-x64/examples/commonscripts/procedures.do;source src/variables.do;createWorklib sensors;acom -dbg src/sensors.vhd;asim -GIntelligent=true -GDataSDinc=3.0 sensors.sensors;logOrWave $signalList;run $runTime"
